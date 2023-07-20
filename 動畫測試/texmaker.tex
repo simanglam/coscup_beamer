@@ -1,0 +1,63 @@
+\input{preambles.tex}
+\usepackage{etoolbox}
+\begin{document}
+\begin{mainpage}{2}{2}
+\begin{luacode}
+function apper(file, argument, location_x, location_y)
+	for i =0,1,0.025 do
+		tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+		tex.sprint("\\draw[draw = none] (-60, -35) rectangle (60, 35);")
+		tex.sprint("\\node[opacity= ".. i .."] at (".. location_x ..",".. location_y ..") {\\includegraphics[".. argument .."]{".. file .."}};")
+		tex.sprint("\\end{tikzpicture}")
+		tex.sprint("\\newframe")
+	end
+	tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+	tex.sprint("\\draw[draw = none] (-60, -35) rectangle (60, 35);")
+	tex.sprint("\\node at (".. location_x ..",".. location_y ..") {\\includegraphics[".. argument .."]{".. file .."}};")
+	tex.sprint("\\end{tikzpicture}")
+end
+function rotate(file, argument, location_x, location_y, start_angle, end_angle)
+	if start_angle > end_angle then
+		rotate_rate = -10
+	else
+		rotate_rate = 10
+	end
+	for i =start_angle,end_angle,rotate_rate do
+		tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+		tex.sprint("\\draw[draw] (-60, -35) rectangle (60, 35);")
+		tex.sprint("\\node (file) at (".. location_x ..",".. location_y ..") {\\includegraphics[".. argument ..", angle = ".. i .."]{".. file .."}};")
+		tex.sprint("\\end{tikzpicture}")
+		tex.sprint("\\newframe")
+	end
+	tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+	tex.sprint("\\draw[draw = none] (-60, -35) rectangle (60, 35);")
+	tex.sprint("\\node[rotate = ".. end_angle .."] at (".. location_x ..",".. location_y ..") {\\includegraphics[".. argument .."]{".. file .."}};")
+	tex.sprint("\\end{tikzpicture}")
+end
+tex.sprint("\\begin{animateinline}[autoplay]{30}")
+apper("texmaker_icon.jpg", "height = 60mm", 0,0)
+tex.sprint("\\newframe")
+for i = 0,50 do
+	tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+	tex.sprint("\\draw[draw=black] (-60, -35) rectangle (60, 35);")
+	tex.sprint("\\node at (".. -i ..","..  i/2 ..") {\\includegraphics[height = ".. 60 - i .."mm]{texmaker_icon.jpg}};")
+	tex.sprint("\\end{tikzpicture}")
+	tex.sprint("\\newframe")
+end
+for i =0,1,0.025 do
+	tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+	tex.sprint("\\draw[draw=black] (-60, -35) rectangle (60, 35);")
+	tex.sprint("\\node at (-50, 25) {\\includegraphics[height = 10 mm]	{texmaker_icon.jpg}};")
+	tex.sprint("\\node[opacity= ".. i .."] at (0,0) {\\includegraphics[width = 40 mm]{qt.jpeg}};")
+	tex.sprint("\\end{tikzpicture}")
+	if i == 1 then
+		
+	else
+		tex.sprint("\\newframe")
+	end
+		
+end
+tex.sprint("\\end{animateinline}")
+\end{luacode}
+\end{mainpage}
+\end{document}

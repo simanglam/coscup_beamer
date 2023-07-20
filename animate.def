@@ -1,0 +1,14 @@
+\documentclass[margin = 5mm]{standalone}
+
+\usepackage{xcolor}
+\definecolor{mygreen}{HTML}{608066}
+\definecolor{mylightgreen}{HTML}{aad2ba}
+\definecolor{mydarkgreen}{HTML}{1d1e18}
+
+\usepackage{tikz}
+\usepackage{luacode}
+\usepackage{graphicx}
+\usepackage{animate}
+
+\pagecolor{mylightgreen}
+\color{mydarkgreen}

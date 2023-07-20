@@ -1,0 +1,74 @@
+\documentclass[12pt, svgnames]{article}
+\usepackage{luatexja-fontspec}
+\usepackage{fontspec}
+\setmainjfont{Wt004.ttf}
+\usepackage{geometry}
+\usepackage{chemfig}
+\usepackage{mhchem}
+\usepackage{amsmath}
+
+\usepackage{luacode}
+\usepackage{multicol}
+\geometry{papersize = {128mm, 96mm},top = 0mm, bottom = 0mm, left = 0mm, right = 0mm}
+\usepackage{tcolorbox}
+\tcbuselibrary{raster}
+\usepackage{pgffor}
+
+\definecolor{mygreen}{HTML}{608066}
+\definecolor{mylightgreen}{HTML}{aad2ba}
+\definecolor{mydarkgreen}{HTML}{1d1e18}
+
+\pagecolor{mylightgreen}
+\color{mydarkgreen}
+
+\newtcolorbox{tinyinfo}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \tiny, colframe = mygreen, }
+
+\newtcolorbox{smallinfo}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \small, colframe = mygreen, }
+
+\newtcolorbox{info}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \footnotesize, colframe = mygreen, halign = center}
+
+\newtcolorbox{ofni}{size = small, outer arc = 0mm, arc = 0mm, colback = mydarkgreen, coltext = mygreen, fontupper = \footnotesize, colframe = mydarkgreen, halign = center}
+
+\title{On the Way to the Open Source}
+\author{Si manglam}
+\makeatletter
+\def\bottom@columns{5}
+\def\first@topic{開源之前}
+\def\second@topic{程式之後}
+\def\third@topic{初踏開源}
+\def\fourth@topic{程式之外}
+\def\fifth@topic{寫書}
+%\def\fifth@topic{手下}
+
+
+\def\draw@top#1{%
+\begin{tcbraster}[raster columns=1, raster equal skip= 0mm, raster column skip = 0pt, raster valign = bottom]
+\begin{tinyinfo}\centering\@title\end{tinyinfo}%
+\begin{tcbraster}[raster columns=2, raster equal skip= 0mm, raster equal height=rows, raster valign = center]%
+\begin{smallinfo}\hfill #1\end{smallinfo}%
+\begin{smallinfo}\@author\end{smallinfo}%
+\end{tcbraster}
+\end{tcbraster}
+}
+
+\def\draw@bottom#1{
+\begin{tcbraster}[raster columns=\bottom@columns, raster equal skip= 0mm, raster equal height]
+\foreach \i in {\first@topic, \second@topic, \third@topic, \fourth@topic, \fifth@topic}
+{\begin{\if\thetcbrasternum#1ofni\else info\fi}\i \end{\if\thetcbrasternum#1ofni\else info\fi}}
+\end{tcbraster}}
+
+\newenvironment{mainpage}[2]{\def\current{#1}\draw@top{#2}}
+{\vfill
+\draw@bottom{\current}
+}
+
+
+
+\makeatother
+
+\linespread{1.35}
+\begin{document}
+\begin{mainpage}{3}{自我介紹}
+我不知道
+\end{mainpage}
+\end{document}

@@ -1,0 +1,216 @@
+\input{preamble.tex}
+\begin{document}
+\large
+\maketitle
+\newpage
+\begin{mainpage}{0}{大綱}
+\vfill
+\begin{multicols}{2}
+\large
+\begin{itemize}
+\item 在踏入開源之前
+\item 在接觸程式語言之後
+\item 初踏開源
+\end{itemize}
+\begin{itemize}
+\item 在程式之外
+\item 寫書
+\end{itemize}
+\end{multicols}
+\mbox{ }
+\end{mainpage}
+\newpage
+\mytitle{在踏入開源之前}
+\newpage
+\begin{tikzpage}{1}{自我介紹}
+\begin{tikzpicture}[x= 1mm, y = 1mm]
+\draw (-60, -35) rectangle (60, 35);
+\draw (-50, -25) rectangle (-10, 25);
+\node[right] at (-5, 0) {
+\begin{minipage}{60mm}
+關於我：
+\begin{itemize}
+\normalsize
+\item 姓名：Si manglam/周造麟
+\item 蘭嶼人
+\item 剛剛學會寫程式的準大一
+\end{itemize}
+\end{minipage}
+};
+\end{tikzpicture}
+\end{tikzpage}
+\newpage
+\begin{tikzpage}{1}{自我介紹}
+\begin{tikzpicture}[x= 1mm, y = 1mm]
+\draw (-60, -35) rectangle (60, 35);
+\draw (-50, -25) rectangle (-10, 25);
+\node[right] at (-5, 0) {
+\begin{minipage}{60mm}
+關於我：
+\begin{itemize}
+\normalsize
+\item 喜歡研究的事情
+\item 想辦法改善遇到的問題
+\item 喜歡奇怪的事情
+\end{itemize}
+\end{minipage}
+};
+\end{tikzpicture}
+\end{tikzpage}
+\newpage
+\begin{tikzpage}{1}{自我介紹}
+\begin{tikzpicture}[x= 1mm, y = 1mm, grow cyclic,
+	level 1/.style={level distance=2.5cm,sibling angle=120, fill = mygreen},
+	level 2/.style={level distance=3 cm,sibling angle=45}]
+\draw[draw = none, fill = none] (-60, -35) rectangle (60, 35);
+\node[fill = mygreen, circle] {高一生活}
+	child{node[fill = mygreen, circle] {化學}}
+	child{node[fill = mygreen, circle] {化學}}
+	child{node[fill = mygreen, circle] {化學}}
+	;
+\end{tikzpicture}
+\end{tikzpage}
+\newpage
+\mysubtitle{要怎麼打出化學方程式？}
+\newpage
+\mysubtitle{\scalebox{3}{\LaTeX}}
+\newpage
+\mytitle{程式語言}
+\newpage
+\begin{mainpage}{2}{LaTeX}
+\mbox{ }
+\mysubtitle{\scalebox{3}{\LaTeX ?}}
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{LaTeX}
+{\LARGE \LaTeX:}\\
+\begin{itemize}
+\setlength{\itemindent}{3em}
+\item 標記語言
+\item 經過 \TeX 的編譯排版成為精緻的文件
+\end{itemize}
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{la}
+LuaLaTeX 介紹
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{LuaLaTeX}
+\mysubtitle{
+\begin{tikzpicture}[scale = 2]
+\node (latex) {\LaTeX};
+\node[node distance = 4cm, right of = latex] (lua) {Lua};
+\draw[-{Stealth[length=5mm]}] (latex)--(lua);
+\end{tikzpicture}
+}
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{LuaLaTeX}
+\mysubtitle{
+\begin{tikzpicture}
+\node (latex) {\LaTeX};
+\node[node distance = 4cm, right of = latex] (lua) {Lua};
+\node[scale = 2] at($(latex)!0.5!(lua)$) {X};
+\draw[-{Stealth[length=5mm]}] (latex)--(lua);
+\end{tikzpicture}
+}
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{動畫}
+\setlength{\leftskip}{0mm}
+\setlength{\rightskip}{0mm}
+\begin{center}
+\vskip-12pt
+\vfill
+\animategraphics[draft]{72}{test-figure}{0}{720}
+\vfill
+\vskip-12pt
+\end{center}
+\end{mainpage}
+\newpage
+%% 放其他動畫圖
+\begin{mainpage}{2}{資料}
+放其他動畫圖
+\end{mainpage}
+\newpage
+\begin{mainpage}{2}{資料}
+資料分類
+\end{mainpage}
+\newpage
+\mysubtitle{自主學習主題！！}
+\newpage
+\mytitle{初踏開源}
+\newpage
+\begin{tikzpage}{3}{自主學習}
+\vfill
+\begin{tikzpicture}[x = 1 mm, y = 1 mm]
+\draw[->] (-30, 0)--(30, 0);
+\end{tikzpicture}
+\end{tikzpage}
+\newpage
+\begin{mainpage}{3}{TeXmaker}
+\begin{center}
+\includegraphics[width = 60mm]{動畫測試/texmaker_icon.jpg}
+\end{center}
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{Translation}
+\mysubtitle{英文 ＞ 中文}
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{Translation}
+\mysubtitle{英文 ＜ 中文}
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{TeXmaker}
+TeXmaker 的翻譯過程動畫 Part 1
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{Qt}
+\begin{center}
+\includegraphics[width = 90 mm]{動畫測試/qt.jpeg}
+\end{center}
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{TeXmaker}
+\mysubtitle{TeXmaker is open source}
+\end{mainpage}
+\newpage
+\begin{mainpage}{3}{TeXmaker}
+TeXmaker 的翻譯過程動畫 Part 2
+\end{mainpage}
+\newpage
+\mytitle{在程式之外}
+\newpage
+\mysubtitle{開源還可以是什麼}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{程式？原始碼？}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{程式\\\rotatebox{90}{＝}\\一組給電腦的、用來解決某種問題的指令。}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+關鍵字顯示動畫
+\mysubtitle{程式\\\rotatebox{90}{＝}\\一組給電腦的、用來解決某種問題的指令。}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{原始碼\\\rotatebox{90}{＝}\\？？？？？？？？？？？}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{原始碼\\\rotatebox{90}{＝}\\？？？？？？？？？？？}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{廣義的開源}
+\end{mainpage}
+\newpage
+\begin{mainpage}{4}{開源還能是什麼}
+\mysubtitle{廣義的開源}
+\end{mainpage}
+\newpage
+\end{document}

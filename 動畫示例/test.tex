@@ -1,0 +1,63 @@
+\input{../animate.def}
+\usepackage{animate}
+\usetikzlibrary{external}
+\tikzexternalize[mode = list and make]
+\begin{document}
+\begin{luacode}
+local a, b, c, d, e, f, g, h = 0,0,0,0,0,0,0,0
+tex.sprint("\\begin{animateinline}{24}")
+repeat
+	tex.sprint("\\begin{tikzpicture}[x= 1mm, y = 1mm]")
+	---tex.sprint("\\draw[draw = none] (-60, -35) rectangle (60, 35);")
+	tex.sprint("\\draw (0,0) circle (25);")
+    tex.sprint("\\node[fill = blue!100, circle] (a) at (".. a ..":25) { };")
+    tex.sprint("\\node[fill = blue!95, circle] (b) at (".. b ..":22.5) { };")
+    tex.sprint("\\node[fill = blue!90, circle] (c) at (".. c ..":20) { };")
+    tex.sprint("\\node[fill = blue!85, circle] (d) at (".. d ..":17.5) { };")
+    tex.sprint("\\node[fill = blue!80, circle] (e) at (".. e ..":15) { };")
+    tex.sprint("\\node[fill = blue!75, circle] (f) at (".. f ..":12.5) { };")
+    tex.sprint("\\node[fill = blue!70, circle] (g) at (".. g ..":10) { };")
+    tex.sprint("\\node[fill = blue!65, circle] (h) at (".. h ..":7.5) { };")
+    tex.sprint("\\draw (a)--(b)--(c)--(d)--(e)--(f)--(g)--(h)--(0,0);")
+    tex.sprint("\\end{tikzpicture}")
+    a = a + 4
+    b = b + 3.5
+    c = c + 3
+    d = d + 2.5
+    e = e + 2
+    f = f + 1.5
+    g = g + 1
+    h = h + 0.5
+    if a >= 360 then
+        a = a - 360
+    end
+    if b >= 360 then
+        b = b - 360
+    end
+    if c >= 360 then
+        c = c - 360
+    end
+    if d >= 360 then
+        d = d - 360
+    end
+    if e >= 360 then
+        e = e - 360
+    end
+    if f >= 360 then
+        f = f - 360
+    end
+    if g >= 360 then
+        g = g - 360
+    end
+    if h >= 360 then
+        h = h - 360
+    end
+    if (a == 0 and b == 0 and c == 0 and d == 0 and e == 0 and f == 0 and g == 0 and h == 0) then
+    	
+    else
+    	tex.sprint("\\newframe")
+    end
+until (a == 0 and b == 0 and c == 0 and d == 0 and e == 0 and f == 0 and g == 0 and h == 0)
+tex.sprint("\\end{animateinline}")
+\end{luacode}
+\end{document}

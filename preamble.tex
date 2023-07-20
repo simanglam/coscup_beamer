@@ -1,0 +1,136 @@
+\documentclass[12pt, svgnames]{article}
+\usepackage{luatexja-fontspec}
+\usepackage{fontspec}
+
+\setmainjfont{Wt004.ttf}
+\newfontfamily{\mytitlefont}{SavoyeLetPlain}
+
+\usepackage{geometry}
+\geometry{papersize = {128mm, 96mm},top = 0mm, bottom = 0mm, left = 0mm, right = 0mm}
+
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows, mindmap}
+\usepackage{luacode}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{raster}
+\usepackage{pgffor}
+
+\usepackage{multicol}
+
+\usepackage{chemfig}
+\usepackage{mhchem}
+
+\usepackage{enumitem}
+
+\definecolor{mygreen}{HTML}{608066}
+\definecolor{mylightgreen}{HTML}{aad2ba}
+\definecolor{mydarkgreen}{HTML}{1d1e18}
+
+\pagecolor{mylightgreen}
+\color{mydarkgreen}
+
+\usepackage{graphicx}
+\usepackage{animate}
+\graphicspath{{示例/}}
+
+\newtcolorbox{tinyinfo}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \tiny, colframe = mygreen, }
+
+\newtcolorbox{smallinfo}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \small, colframe = mygreen, }
+
+\newtcolorbox{info}{size = small, outer arc = 0mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \footnotesize, colframe = mygreen, halign = center}
+
+\newtcolorbox{ofni}{size = small, outer arc = 0mm, arc = 0mm, colback = mydarkgreen, coltext = mygreen, fontupper = \footnotesize, colframe = mydarkgreen, halign = center}
+
+\newtcolorbox{titlebox}{arc = 0mm, colback = mygreen, coltext = mydarkgreen, colframe = mygreen, width = 0.7\textwidth}
+
+\title{On the Way to the Open Source}
+\author{Si manglam}
+\makeatletter
+\def\bottom@columns{5}
+\def\first@topic{開源之前}
+\def\second@topic{程式之後}
+\def\third@topic{初踏開源}
+\def\fourth@topic{程式之外}
+\def\fifth@topic{寫書}
+%\def\fifth@topic{手下}
+
+\usepackage{scrextend}
+
+\def\draw@top#1{%
+\begin{tcbraster}[raster columns=1, raster equal skip= 0mm, raster column skip = 0pt, raster valign = bottom, raster after skip = 2.5mm]
+\begin{tinyinfo}\centering\@title\end{tinyinfo}%
+\begin{tcbraster}[raster columns=2, raster equal skip= 0mm, raster equal height, raster valign = top]%
+\begin{smallinfo}$\phantom{\@author}$\hfill #1\end{smallinfo}%
+\begin{smallinfo}\@author$\phantom{#1}$\end{smallinfo}%
+\end{tcbraster}
+\end{tcbraster}
+}
+
+\def\draw@bottom#1{
+\begin{tcbraster}[raster columns=\bottom@columns, raster equal skip= 0mm, raster equal height]
+\foreach \i in {\first@topic, \second@topic, \third@topic, \fourth@topic, \fifth@topic}
+{\begin{\if\thetcbrasternum#1ofni\else info\fi}\i \end{\if\thetcbrasternum#1ofni\else info\fi}}
+\end{tcbraster}}
+
+\newenvironment{mainpage}[2]{
+\def\current{#1}\draw@top{#2}\vskip12pt
+\begin{addmargin}[10mm]{10mm}
+}
+{\end{addmargin}
+\vskip12pt\vfill
+\draw@bottom{\current}
+}
+\newenvironment{tikzpage}[2]{
+\def\current{#1}\draw@top{#2}
+}
+{\vfill
+\draw@bottom{\current}
+}
+\renewcommand{\maketitle}{
+\mbox{ }\vfill%
+{
+\begin{center}
+\begin{tcbraster}[raster columns = 1, raster equal skip = 0mm, raster width = 0.7\textwidth, raster halign = center]
+\begin{tcolorbox}[outer arc = 0.5mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, fontupper = \huge, colframe = mygreen]
+{\@title}
+\end{tcolorbox}
+\begin{tcbraster}[raster columns = 2, raster equal skip = 0mm]
+\begin{tcolorbox}[colback = mylightgreen, colframe = mylightgreen]
+
+\end{tcolorbox}
+\begin{tcolorbox}[outer arc = 0.5mm, arc = 0mm, colback = mygreen, coltext = mydarkgreen, colframe = mygreen]
+{\mytitlefont\@author}
+\end{tcolorbox}
+\end{tcbraster}
+\end{tcbraster}
+\end{center}
+}
+\vfill
+}
+
+\newcommand{\mytitle}[1]{%
+\mbox{}\vfill\centering%
+\begin{titlebox}
+\centering{\huge #1}
+\end{titlebox}
+\vfill\mbox{}}
+\newcommand{\subtitle}[1]{%
+\mbox{}\vfill\centering%
+\begin{titlebox}
+\centering{\huge #1}
+\end{titlebox}
+\vfill\mbox{}}
+
+\newcommand{\mysubtitle}[1]{%
+\mbox{}\vfill\centering%
+\begin{tcolorbox}[arc = 0mm, colback = mylightgreen, coltext = mydarkgreen, colframe = mylightgreen, width = 0.7\textwidth]
+\centering{\LARGE #1}
+\end{tcolorbox}
+\vfill\mbox{}}
+
+\makeatother
+
+\linespread{1.35}
