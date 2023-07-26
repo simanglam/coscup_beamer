@@ -46,16 +46,35 @@
 
 \newtcolorbox{titlebox}{arc = 0mm, colback = mygreen, coltext = mydarkgreen, colframe = mygreen, width = 0.7\textwidth}
 
+\tikzset{
+	pics/mynode/.style args={#1}{
+		code={
+			\draw[fill=mygreen] (0,-15) -- (-75:9) arc (-75:255:9)--cycle;
+			\node[circle, minimum size=1.2cm, fill=white, draw=black, label=center:{#1}] at (0,0) { };
+     }
+  }
+}
+
+\tikzset{
+  	pics/upnode/.style args={#1}{
+		code={
+			\draw[fill=mygreen] (0,15) -- (105:9) arc (105:435:9)--cycle;
+			\node[circle, minimum size=1.2cm, fill=white, draw=black, label=center:{#1}] at (0,0) { };
+     }
+  }
+}
+
 \title{On the Way to the Open Source}
 \author{Si manglam}
+
 \makeatletter
+
 \def\bottom@columns{5}
 \def\first@topic{開源之前}
 \def\second@topic{程式之後}
 \def\third@topic{初踏開源}
 \def\fourth@topic{程式之外}
 \def\fifth@topic{寫書}
-%\def\fifth@topic{手下}
 
 \usepackage{scrextend}
 

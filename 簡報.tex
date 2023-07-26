@@ -19,6 +19,9 @@
 \end{multicols}
 \mbox{ }
 \end{mainpage}
+%
+%%%%%%%% 在踏入開源之前 %%%%%%%%
+%
 \newpage
 \mytitle{在踏入開源之前}
 \newpage
@@ -74,6 +77,9 @@
 \mysubtitle{要怎麼打出化學方程式？}
 \newpage
 \mysubtitle{\scalebox{3}{\LaTeX}}
+%
+%%%%%%%% 接觸程式語言之後 %%%%%%%%
+%
 \newpage
 \mytitle{程式語言}
 \newpage
@@ -133,18 +139,33 @@ LuaLaTeX 介紹
 放其他動畫圖
 \end{mainpage}
 \newpage
-\begin{mainpage}{2}{資料}
-資料分類
-\end{mainpage}
+\begin{tikzpage}{2}{資料}
+\begin{tikzpicture}[x = 1 mm, y = 1 mm, node distance = 15mm and 15mm]
+\draw[draw = none, fill = none] (-60, -35) rectangle (60, 35);
+\coordinate (a) at (0, 35);
+\node[text width=14pt, below, execute at begin node=\setlength{\baselineskip}{1pt}] (b) at (-20,20) {老舊繁體中文資料};
+\node[text width=14pt, below, execute at begin node=\setlength{\baselineskip}{1pt}] (c) at (0,20) {中等簡體中文資料};
+\node[text width=14pt, below, execute at begin node=\setlength{\baselineskip}{1pt}] (d) at (20,20) {最新英文資料};
+\draw (a)--(b.north);
+\draw (a)--(c.north);
+\draw (a)--(d.north);
+\end{tikzpicture}
+\end{tikzpage}
 \newpage
 \mysubtitle{自主學習主題！！}
 \newpage
 \mytitle{初踏開源}
 \newpage
+%
+%%%%%%%% 自主學習 %%%%%%%%
+%
 \begin{tikzpage}{3}{自主學習}
-\vfill
 \begin{tikzpicture}[x = 1 mm, y = 1 mm]
-\draw[->] (-30, 0)--(30, 0);
+\draw (-60, -35) rectangle (60, 35);
+\draw (-45, 15) pic{mynode ={提案}};
+\draw (0, -15) pic{upnode ={檢核}};
+\draw (45, 15) pic{mynode ={檢核}};
+\draw[->, line width = 1mm] (-45, 0)--(45, 0);
 \end{tikzpicture}
 \end{tikzpage}
 \newpage
@@ -184,6 +205,9 @@ TeXmaker 的翻譯過程動畫 Part 2
 \newpage
 \mysubtitle{開源還可以是什麼}
 \newpage
+%
+%%%%%%%% 程式之外 %%%%%%%%
+%
 \begin{mainpage}{4}{開源還能是什麼}
 \mysubtitle{程式？原始碼？}
 \end{mainpage}
@@ -209,8 +233,13 @@ TeXmaker 的翻譯過程動畫 Part 2
 \mysubtitle{廣義的開源}
 \end{mainpage}
 \newpage
-\begin{mainpage}{4}{開源還能是什麼}
-\mysubtitle{廣義的開源}
-\end{mainpage}
+%
+%%%%%%%% 寫書 %%%%%%%%
+%
+\mytitle{寫書}
 \newpage
+
+
+\mysubtitle{結語}
+
 \end{document}
